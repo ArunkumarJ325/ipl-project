@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 // Read the JSON file
-const rawData = fs.readFile('/home/arun/Downloads/IPL/matches.json');
+const rawData = fs.readFileSync('/home/arun/Downloads/ipl-project/src/public/matches.json');
 const data = JSON.parse(rawData);
 
 
@@ -17,13 +17,13 @@ const out=data.reduce((acc,val)=>{
 },{})
 console.log(out)
 const result=JSON.stringify(out,null,2)
-const store='src/public/matches-per-year.json'
+const store='/home/arun/Downloads/ipl-project/src/public/matches-per-year.json'
 fs.writeFile(store,result,(err)=>{
     if(err){
         console.error("Error while writting",err)
     }
     else{
-        console.log('json file "${store}" is written succesfully')
+        console.log(`json file "${store}" is written succesfully`)
     }
 })
 
